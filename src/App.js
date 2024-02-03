@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import Heading from "./components/Heading";
+import Addtodo from "./components/Addtodo";
+import TodoItems from "./components/TodoItems";
+import "./App.css";
+import WelcomeMessage from "./components/WelcomeMessage";
+import TodoItemsContextProvider from "./store/todo-item-store";
+// npm install gh-pages --save-dev
+// git init
+// git add .
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodoItemsContextProvider>
+      <div className="todo-container">
+        <center>
+          <Heading />
+          <Addtodo />
+          <WelcomeMessage />
+          <TodoItems />
+        </center>
+      </div>
+    </TodoItemsContextProvider>
   );
 }
 
